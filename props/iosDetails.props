@@ -1,0 +1,4 @@
+platformName=iOS
+deviceName=iPhone 5s
+platform_version=9.3
+appium_version=1.5.3

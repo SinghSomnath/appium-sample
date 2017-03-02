@@ -1,0 +1,29 @@
+<html xmlns:string="xalan://java.lang.String" xmlns:lxslt="http://xml.apache.org/xslt">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Standard Output from AllTests</title>
+</head>
+<body>
+<pre>.......Starting the server..........
+[36minfo[39m: Welcome to Appium v1.4.13 (REV c75d8adcb66a75818a542fe1891a34260c21f76a)
+[36minfo[39m: Appium REST http interface listener started on 127.0.0.1:4723
+[36minfo[39m: [debug] Non-default server args: {"address":"127.0.0.1"}
+[36minfo[39m: Console LogLevel: debug
+**************************************************************************
+**********************APPIUM SERVER STARTED SUCCESSFULLY******************
+**************************************************************************
+&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;Creating the driver object with capabilities
+[36minfo[39m: [37m--&gt;[39m [37mPOST[39m [37m/wd/hub/session[39m [90m{"desiredCapabilities":{"app":"/Users/admin/som/workspace/ios-auto/apps/UICatalog.app","platformName":"iOS","deviceName":"iPhone 5s"}}[39m
+[36minfo[39m: Client User-Agent string: Apache-HttpClient/4.5.1 (Java/1.8.0_73)
+[36minfo[39m: [debug] Using local app from desired caps: /Users/admin/som/workspace/ios-auto/apps/UICatalog.app
+[36minfo[39m: [debug] Got configuration error, not starting session
+[36minfo[39m: [debug] Cleaning up appium session
+[36minfo[39m: [debug] Error: Bad app: /Users/admin/som/workspace/ios-auto/apps/UICatalog.app. App paths need to be absolute, or relative to the appium server install dir, or a URL to compressed file, or a special app name. cause: Error: Error locating the app: ENOENT, stat '/Users/admin/som/workspace/ios-auto/apps/UICatalog.app'
+    at [object Object].&lt;anonymous&gt; (/Applications/Appium.app/Contents/Resources/node_modules/appium/lib/devices/ios/ios.js:188:13)
+    at /Applications/Appium.app/Contents/Resources/node_modules/appium/lib/devices/device.js:82:16
+    at FSReqWrap.oncomplete (fs.js:95:15)
+[36minfo[39m: [debug] Responding to client with error: {"status":33,"value":{"message":"A new session could not be created. (Original error: Bad app: /Users/admin/som/workspace/ios-auto/apps/UICatalog.app. App paths need to be absolute, or relative to the appium server install dir, or a URL to compressed file, or a special app name. cause: Error: Error locating the app: ENOENT, stat '/Users/admin/som/workspace/ios-auto/apps/UICatalog.app')","origValue":"Bad app: /Users/admin/som/workspace/ios-auto/apps/UICatalog.app. App paths need to be absolute, or relative to the appium server install dir, or a URL to compressed file, or a special app name. cause: Error: Error locating the app: ENOENT, stat '/Users/admin/som/workspace/ios-auto/apps/UICatalog.app'"},"sessionId":null}
+[36minfo[39m: [37m&lt;-- POST /wd/hub/session [39m[31m500[39m[90m 24.357 ms - 724[39m [90m[39m
+</pre>
+</body>
+</html>

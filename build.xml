@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="MyProject" default="reporting" basedir=".">
+	<description>
+		iPrint-ios-Automation build file .ss
+	</description>
+	<!-- set global properties for this build -->
+	<property file="${basedir}/props/test_input.props"/>
+	<property name="src" location="src" />
+	<property name="build" location="build" />
+	<property name="reports.tests" location="reports" />
+	<property name="logs.tests" location="logs" />
+	<property name="screenshots.tests" location="screenshots" />
+
+
+	<!-- Creating the master classpath for external libs -->
+	<path id="master-classpath">
+		<fileset dir="${basedir}/libs">
+			<include name="*.jar" />
+		</fileset>
+	</path>
+
+
+	<target name="clean" description="clean up">
+		<!-- Delete the ${build} and ${dist} directory trees -->
+		<delete dir="${build}" />
+		<delete dir="${reports.tests}" />
+		<delete dir="${logs.tests}" />
+		<delete dir="${screenshots.tests}" />
+		<delete dir="${basedir}/apps/UICatalog.app" />
+	</target>
+
+	<target name="init" depends="clean">
+		<!-- Create the time stamp -->
+		<tstamp />
+		<!-- Create the build directory structure used by compile -->
+		<mkdir dir="${build}" />
+		<mkdir dir="${reports.tests}" />
+		<mkdir dir="${logs.tests}" />
+		<mkdir dir="${screenshots.tests}" />
+
+	</target>
+
+	<target name="compile" depends="init" description="compile the source">
+		<!-- Compile the java code from ${src} into ${build} -->
+		<javac srcdir="${src}" destdir="${build}">
+			<classpath refid="master-classpath">
+			</classpath>
+		</javac>
+	</target>
+
+	<target name="javatests1" depends="compile" >
+		<echo> test begins </echo>
+		<junit haltonfailure="false" showoutput="true" printsummary="withOutAndErr" failureproperty="test.failed" >
+			<classpath refid="master-classpath" />
+			<classpath location="${build}" />
+			<formatter type="xml" />
+			<!-- <test name="com.novell.iprint.ios.testcases.Suite001HomeViewTest" todir="${reports.tests}" errorproperty="abc"/> -->
+
+			<batchtest fork="yes" todir="${reports.tests}">
+				<fileset dir="${src}">
+					<include name="**/*AllTests*.java" />
+				</fileset>
+			</batchtest>
+		</junit>
+		<echo> end</echo>
+	</target>
+
+
+	<target name="reporting" depends="javatests1">
+
+		<junitreport todir="./reports">
+			<fileset dir="./reports">
+				<include name="TEST-*.xml"/>
+			</fileset>
+			<report format="frames" todir="./reports/htmls"/>
+		</junitreport>
+	</target>
+
+
+
+</project>
